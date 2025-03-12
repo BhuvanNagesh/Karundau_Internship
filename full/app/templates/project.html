@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Project Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: #0D3B66 url('https://source.unsplash.com/1600x900/?circuit,technology') no-repeat center center fixed;
+            background-size: cover;
+            color: #FAF0CA;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        h1, h2 {
+            color: #F4D35E;
+        }
+        .project {
+            background: rgba(13, 59, 102, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 5px 0;
+        }
+        .navbar {
+            background: linear-gradient(135deg, #0D3B66, #F95738);
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          }
+        
+          .navbar-nav .nav-link {
+            color: #FAF0CA;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: color 0.3s, transform 0.2s;
+          }
+        
+          .navbar-nav .nav-link:hover {
+            color: #F4D35E;
+            transform: translateY(-2px);
+          }
+        
+          .navbar-nav .dropdown-menu {
+            background: #0D3B66;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          }
+        
+          .navbar-nav .dropdown-item {
+            color: #FAF0CA;
+          }
+        
+          .navbar-nav .dropdown-item:hover {
+            background: #F95738;
+            color: #FFF;
+          }
+        
+          .btn-custom {
+            background: #F95738;
+            color: #FAF0CA;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: background 0.3s, box-shadow 0.3s;
+          }
+        
+          .btn-custom:hover {
+            background: #EE964B;
+            box-shadow: 0 4px 15px rgba(249, 87, 56, 0.4);
+          }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  About
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                  <li><a class="dropdown-item" href='https://karunadutechnologies.com/Home/Aboutus'>About Karunadu Technology</a></li>
+                  <li><a class="dropdown-item" href="{% url 'project' %}">About My Project</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'h1' %}">Galactic Astral Type ID</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">Vegetable Classifier</a>
+              </li>
+            </ul>
+            <a href="{% url 'logout' %}" class="btn btn-custom">LogOut</a>
+          </div>
+        </div>
+      </nav>
+      
+    <div class="container">
+        <h1>My Project Portfolio</h1>
+
+        <div class="project">
+            <h2>Astral Classification using Spectral Characteristics</h2>
+            <p>In astronomy, Astral classification refers to the classification of stars based on their spectral characteristics. This project aims to build a Machine Learning model that predicts the class of a stellar object (star, galaxy, or quasar) based on space observation data from the Sloan Digital Sky Survey (SDSS).</p>
+            <h3>Key Features:</h3>
+            <ul class="feature-list">
+                <li>Alpha (Right Ascension angle)</li>
+                <li>Delta (Declination angle)</li>
+                <li>Ultraviolet, Green, Red, Near Infrared, and Infrared filters</li>
+                <li>Run ID, Rerun ID, Camera column, and Field ID</li>
+                <li>Redshift value, Plate ID, MJD, and Fiber ID</li>
+                <li>Class label (Star, Galaxy, or Quasar)</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <h2>Naive Bayes Algorithm</h2>
+            <p>The Naive Bayes algorithm is a simple yet powerful classification algorithm based on Bayes' Theorem. It assumes independence between predictors and is particularly effective for large datasets with categorical inputs. Despite its simplicity, Naive Bayes performs surprisingly well in various real-world applications like spam detection, sentiment analysis, and document classification.</p>
+        </div>
+
+        <div class="project">
+            <h2>Vegetable Classifier</h2>
+            <p>This project involves building a machine learning model to classify vegetables into 15 distinct categories, such as Bean, Bitter Gourd, Brinjal, Broccoli, and Tomato. Using image data, the model learns to identify key visual features that distinguish each vegetable, making it useful for applications like smart farming and automated grocery systems.</p>
+        </div>
+    </div>
+</body>
+</html>

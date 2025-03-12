@@ -1,0 +1,184 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galactic Astral Identification</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body { 
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('{% static "images/hello.jpeg" %}');
+            background-size: contain;
+            background-position: center;
+        }
+    
+        .container {
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            width: 90%;
+            max-width: 1000px;
+        }
+    
+        .intro {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .input-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        input::placeholder {
+            color: #ddd;
+        }
+        button {
+            background: #F95738;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+        button:hover {
+            background: #EE964B;
+        }
+        .result-box {
+            margin-top: 20px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+        .navbar {
+            background: linear-gradient(135deg, #0D3B66, #F95738);
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          }
+        
+          .navbar-nav .nav-link {
+            color: #FAF0CA;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: color 0.3s, transform 0.2s;
+          }
+        
+          .navbar-nav .nav-link:hover {
+            color: #F4D35E;
+            transform: translateY(-2px);
+          }
+        
+          .navbar-nav .dropdown-menu {
+            background: #0D3B66;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          }
+        
+          .navbar-nav .dropdown-item {
+            color: #FAF0CA;
+          }
+        
+          .navbar-nav .dropdown-item:hover {
+            background: #F95738;
+            color: #FFF;
+          }
+        
+          .btn-custom {
+            background: #F95738;
+            color: #FAF0CA;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: background 0.3s, box-shadow 0.3s;
+          }
+        
+          .btn-custom:hover {
+            background: #EE964B;
+            box-shadow: 0 4px 15px rgba(249, 87, 56, 0.4);
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  About
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                  <li><a class="dropdown-item" href='https://karunadutechnologies.com/Home/Aboutus'>About Karunadu Technology</a></li>
+                  <li><a class="dropdown-item" href="{% url 'project' %}">About My Project</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'h1' %}">Galactic Astral Type ID</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">Vegetable Classifier</a>
+              </li>
+            </ul>
+            <a href="{% url 'logout' %}" class="btn btn-custom">LogOut</a>
+          </div>
+        </div>
+      </nav>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="container">
+            <h1>Galactic Astral Identification</h1>
+            <p class="intro">
+                In astronomy, Astral classification refers to the classification of stars based on their spectral characteristics. 
+                This fundamental concept helps identify galaxies, quasars, and stars. With powerful telescopes and the Sloan Digital Sky Survey (SDSS) dataset containing 100,000 observations, 
+                we can build a machine learning model to predict the class of stellar objects. The dataset includes 16 features like angles, filters, IDs, and redshift values — helping pinpoint whether an object is a star, galaxy, or quasar.
+            </p>
+            <form id="galacticForm">
+                <div class="input-group">
+                    <input type="text" placeholder="Right Ascension Angle" name="alpha" required>
+                    <input type="text" placeholder="Declination Angle" name="delta" required>
+                    <input type="text" placeholder="Ultraviolet Filter" name="u" required>
+                    <input type="text" placeholder="Green Filter" name="g" required>
+                    <input type="text" placeholder="Red Filter" name="r" required>
+                    <input type="text" placeholder="Near Infrared Filter" name="i" required>
+                    <input type="text" placeholder="Infrared Filter" name="z" required>
+                    <input type="text" placeholder="Run ID" name="run_ID" required>
+                    <input type="text" placeholder="Rerun ID" name="rerun_ID" required>
+                    <input type="text" placeholder="Camera Column" name="cam_col" required>
+                    <input type="text" placeholder="Field ID" name="field_ID" required>
+                    <input type="text" placeholder="Unique ID Specific Object ID" name="spec_obj_ID" required>
+                    <input type="text" placeholder="Redshift" name="redshift" required>
+                    <input type="text" placeholder="Plate ID" name="plate" required>
+                    <input type="text" placeholder="Modified Julian Date" name="MJD" required>
+                    <input type="text" placeholder="Fiber ID" name="fiber_ID" required>
+                </div>
+                <button type="submit" name="buttonn">Predict Class</button>
+            </form>
+            <div id="result" class="result-box">
+                {{ result }}
+            </div>
+        </div>
+    </form>
+</body>
+</html>
