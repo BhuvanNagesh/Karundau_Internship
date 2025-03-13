@@ -39,3 +39,45 @@ A machine learning project to classify vegetables into 15 distinct categories us
 
 - **Vegetables Classified:** Bean, Bitter Gourd, Brinjal, Broccoli, Tomato, and more!
 - **Use Cases:** Smart farming, automated grocery systems
+## 📊 Algorithm: Convolutional Neural Network (CNN)
+
+The core of the image classification system is a CNN, a deep learning model tailored for image recognition tasks. Let’s break it down! ⚡
+
+```python
+# CNN Architecture
+model = Sequential([
+    Conv2D(32, (5, 5), activation='relu', input_shape=X_train.shape[1:]),
+    MaxPool2D(pool_size=(2, 2)),
+    Dropout(0.25),
+    Flatten(),
+    Dense(256, activation='relu'),
+    Dropout(0.5),
+    Dense(classes, activation='softmax')
+])
+```
+
+-**🔍 Layer-by-Layer Breakdown
+
+1. **Convolutional Layer (Conv2D):**
+   - Applies 32 filters of size `(5x5)` to the input image.
+   - Detects features like edges, textures, and shapes.
+
+2. **Activation Function:**
+   - `ReLU` (Rectified Linear Unit) replaces negative values with zero.
+   - Speeds up convergence and adds non-linearity.
+
+3. **Pooling Layer (MaxPooling):**
+   - `MaxPool2D(pool_size=(2, 2))` downsamples the image.
+   - Reduces dimensionality and computation by selecting the maximum value in each block.
+
+4. **Dropout:**
+   - `Dropout(0.25)` randomly drops 25% of neurons during training.
+   - Prevents overfitting and enhances generalization.
+
+5. **Flatten Layer:**
+   - Converts the 3D tensor into a 1D vector.
+   - Prepares data for the fully connected layers.
+
+6. **Fully Connected (Dense) Layers:**
+   - `Dense(256, activation='relu')`: A layer with 256 neurons.
+   - `Dense(classes, activation='softmax')`: The output layer with neurons equal to the number of classes, using `softmax` to output class probabilities.
