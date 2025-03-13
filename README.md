@@ -2,6 +2,13 @@
 
 Welcome to my project portfolio repository! This is a complete web-based application built using **HTML**, **CSS**, and **Django**. The application consists of a navigation bar with four main sections, each showcasing different aspects of my work, including my internship experience, machine learning models, and image recognition projects. 
 
+This application contains four key sections, accessible via the navigation bar:
+
+1. **About Page:** Provides insights into my internship company, Karunadu Technology.
+2. **Project Description:** A detailed overview of the web app and its components.
+3. **Galactic Astral Type ID:** A machine learning project classifying celestial objects.
+4. **Vegetable Classifier:** An image recognition system identifying 15 vegetable categories.
+
 ---
 
 ## 🛠️ **Tech Stack:**
